@@ -919,7 +919,8 @@
     <script src="<?php echo assets('/ressources/js/plugins-init/datatables.init.js' );?>"></script>
 
     <!-- DATATABLE -->
-    <script src="<?php echo assets('/ressources/js/plugins-init/Todo-script-init.js' );?>"></script>
+    <script src="<?php echo assets('/ressources/js/plugins-init/Todo-script-init.js' );?>"></script>*
+    <script src="<?php echo assets('/ressources/js/formulaire.js' );?>"></script>
     
 
 </body>

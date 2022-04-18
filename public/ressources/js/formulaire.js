@@ -1,95 +1,60 @@
 window.addEventListener("DOMContentLoaded", (event) => {
 
-
-
-
-
-    console.log("DOM entièrement chargé et analysé");
-   
-
-
-
-
-  
-
-  const form = document.getElementById('missionAdd');
-  const pages = document.querySelectorAll('.page');
-  const Headers = document.querySelector('.header-form');
-  const nbPages = pages.length;
-  const submit = document.querySelector('.submit');
-  const page1 = document.getElementById('page1');
-  const page2 = document.getElementById('page2');
-  const page3 = document.getElementById('page3');
-  let pageActive = 0;
-
-  // On affiche la 1ere page  par défaut
-window.onload = () => {
-   for(let page of pages){
-    page.style.display = 'none';
-  }
- document.querySelector('.page').style.display = 'block';
-
-
-    // On gère sur les boutons "suivant"
-    let boutons = document.querySelectorAll('.button-page');
-    for(bouton of boutons){
-      bouton.addEventListener('click', pageSuivante);
-    }
-
-function pageSuivante(){
-  pageActive++;
-  
-   for(let page of pages){
-    page.style.display = 'none';
-   }
-   pages[pageActive].style.display = 'block';
-    
-  }// fin pageSuivante
-
-
-   
-   
-   // on gère les boutons " precedent" 
-    let boutonsPrecedent = document.querySelectorAll('.button-page-precedent');
-    for(bouton of boutonsPrecedent){
-      bouton.addEventListener('click', pagePrecedente);
-    }
-    function pagePrecedente(){
-     pageActive--;
-     
-      for(let page of pages){
-      page.style.display = 'none';
-      }
-      pages[pageActive].style.display = 'block';
-    
-
-      }
-      
-
-  
-    
-    }
- 
-
-form.addEventListener('click', function(event){
+  console.log("DOM entièrement chargé et analysé");
+  const form = document.getElementById('add-task');
+  console.log(form);
+  form.addEventListener('submit', function (event) {
     event.preventDefault();
     console.log("Formulaire soumis");
-    
+
     const formattedFormData = new FormData(form);
     postData(formattedFormData);
-});
+  });
 
-async function postData(formattedFormData){
-  let url = window.location.href;
-    const response = await fetch(url,{
-        method: 'POST',
-        body: formattedFormData
+  async function postData(formattedFormData) {
+    let url = window.location.origin + "/add-task";
+    const response = await fetch(url, {
+      method: 'POST',
+      body: formattedFormData
     });
 
+    if (!response.ok) {
+       throw new Error(`HTTP error! status: ${response.status}`);
+     }
+
     const data = await response.text();
-    
-    console.log(data);
-}
-    
+
+    if(data){
+      console.log("ok");
+          
+
+      window.location.href = window.location.origin + "/show-list/" + data;
+    }
+
+  }//postData
+
+     const card = document.querySelector('#DZ_W_Todo4');
+     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+     const countCheckboxes = checkboxes.length;
+     let span = document.querySelector('.title-todo');
+     span.innerHTML = countCheckboxes;
+     span.style.display = "block";
+     console.log(countCheckboxes);
    
+  console.log(card);
+      card.addEventListener('click',  (event) => {
+        console.log("click");
+
+        if (event.target.tagName === 'INPUT') {
+          console.log("input");
+          let checkboxes = document.querySelectorAll('input[type="checkbox"]');
+          let countCheckboxes = checkboxes.length;
+          countCheckboxes--;
+          let span = document.querySelector('.title-todo');
+          span.innerHTML = countCheckboxes;
+          span.style.display = "block";
+          console.log(countCheckboxes);
+        }
+      });
+
 });// fin de la fonction d'écoute de l'événement DOMContentLoaded

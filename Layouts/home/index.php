@@ -4,17 +4,23 @@
                       <span>Datatable</span>
                   </div>
               </div>
+
               <div class="col-sm text-left">
-                  <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#addListModal">
+                  <button type="button" class="btn btn-outline-secondary" data-toggle="modal"
+                      data-target="#addListModal">
                       <i class="fa fa-plus"></i> Nouvelle liste
                   </button>
               </div>
-
-
+              <div class="message-flash m-3">
+                    <?php get_flash_message_error(); ?>
+                    <?php get_flash_message_success(); ?>
+              </div>
+           
 
 
               <!-- Add list modale -->
-              <div class="modal fade" id="addListModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal fade" id="addListModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                  aria-hidden="true">
                   <div class="modal-dialog" role="document">
                       <div class="modal-content">
                           <div class="modal-header">
@@ -24,43 +30,11 @@
                               </button>
                           </div>
                           <div class="modal-body">
-                              <form action="" method="post">
-                                  <div class="form-group">
-                                      <label for="list_name">List Name</label>
-                                      <input type="text" class="form-control" id="list_name" name="list_name" placeholder="Enter list name">
-                                  </div>
-                                  <div class="form-group">
-                                      <label for="list_description">List Description</label>
-                                      <textarea class="form-control" id="list_description" name="list_description" rows="3"></textarea>
-                                  </div>
-                                  <div class="form-group">
-                                      <label for="list_status">List Status</label>
-                                      <select class="form-control" id="list_status" name="list_status">
-                                          <option value="1">Active</option>
-                                          <option value="0">Inactive</option>
-                                      </select>
-                                  </div>
-                                  <div class="form-group">
-                                      <label for="list_status">List Type</label>
-                                      <select class="form-control" id="list_type" name="list_type">
-                                          <option value="1">Public</option>
-                                          <option value="0">Private</option>
-                                      </select>
-                                  </div>
-
-                                  <div class="modal-footer">
-                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                      <button type="submit" class="btn btn-primary">Save</button>
-                                  </div>
-                              </form>
+                              <?php echo $form; ?>
                           </div>
                       </div>
                   </div>
               </div>
-
-
-
-
 
               <div class="col-sm-6 col-lg-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                   <ol class="breadcrumb">
@@ -87,20 +61,30 @@
                                           </tr>
                                       </thead>
                                       <tbody>
+                                      
+                                          <?php foreach ($lists as $list): ?>
                                           <tr>
-                                              <td>Tiger Nixon</td>
-                                              <td><span class="badge light badge-success">Paid</span></td>
+                                              <td><?php echo $list['name'] ?? "" ?></td>
+                                              <td><span class="badge light badge-success">Progression</span></td>
                                               <td>
                                                   <div class="widget-content-right">
-                                                      <button class="border-0 btn-transition btn btn-outline-success">
-                                                          <i class="fa fa-check"></i>
-                                                      </button>
-                                                      <button class="border-0 btn-transition btn btn-outline-danger">
-                                                          <i class="fa fa-trash"></i>
-                                                      </button>
+                                                      <form action="show-list/<?php echo $list['id'] ?? "" ?>" method="post">
+                                                          <input type="hidden" name="id" value="<?php echo $list['id'] ?? "" ?>">
+                                                          <button  type="submit" class="border-0 btn-transition btn btn-outline-success">
+                                                          <i class="fa fa-eye"></i>
+                                                          </button>
+                                                        </form>                                                       
+                                                    
+                                                      <form action="delete-list/<?php echo $list['id'] ?? "" ?>" method="post">
+                                                          <input type="hidden" name="id" value="<?php echo $list['id'] ?? "" ?>">
+                                                          <button type="submit" class="border-0 btn-transition btn btn-outline-danger">
+                                                              <i class="fa fa-trash"></i>
+                                                          </button>
+                                                        </form>
                                                   </div>
                                               </td>
                                           </tr>
+                                            <?php endforeach; ?>  
                                       </tbody>
                                   </table>
                               </div>

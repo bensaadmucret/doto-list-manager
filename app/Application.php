@@ -14,8 +14,11 @@ class Application
         $router = new Router();
         Router::setNameSpace('App\\Controller\\');
         $router->add('GET', '/', 'HomeController@index', 'home');
-        $router->add('GET', '/show', 'HomeController@show', 'show');
-        $router->add('GET', '/add', 'HomeController@add', 'add');
+        $router->add('GET', 'show', 'HomeController@show', 'show');
+        $router->add('POST', 'add-list', 'HomeController@add_list', 'add_list');
+        $router->add('GET', 'show-list/:id', 'HomeController@show_list', 'show_list');
+        $router->add('POST', 'show-list/:id', 'HomeController@show_list', 'show_list');
+        $router->add('POST', 'add-task', 'HomeController@add_task', 'add_task');
 
 
 

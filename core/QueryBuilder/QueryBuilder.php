@@ -153,9 +153,10 @@ class QueryBuilder
      * @param string $condition
      * @return self
      */
-    public function join(string $table, string $condition): self
+    public function join(string $table, array $condition): self
     {
-        $this->join[] = $table . ' ON ' . $condition;
+        $this->join[] = ' INNER JOIN ' . $table . ' ON ' . 
+            $condition[0] . ' = ' . $condition[1];
         return $this;
     }
 

@@ -47,6 +47,7 @@ class Model
     {
         try {
             $query = $this->connexion->prepare("SELECT * FROM $table WHERE id = :id");
+          
             $query->execute([
                 'id' => $id
             ]);
@@ -56,6 +57,9 @@ class Model
             throw new \Exception("Error connecting to the database: " . $e->getMessage());
         }
     }
+
+   
+
 
     /**
      * Undocumented function
@@ -69,7 +73,7 @@ class Model
     public function insert($table, $data)
     {
         try {
-            $query = $this->connexion->prepare('INSERT INTO '. $table .'('. implode(',', array_keys($data)) .') VALUES (:'. implode(', :', array_keys($data)) .')');
+            $query = $this->connexion->prepare('INSERT INTO ' . $table . '(' . implode(',', array_keys($data)) . ') VALUES (:' . implode(', :', array_keys($data)) . ')');
 
             $query->execute($data);
             return $this->connexion->lastInsertId();
@@ -91,9 +95,9 @@ class Model
     public function update(string $table, array $data)
     {
         try {
-            $query = $this->connexion->prepare('UPDATE '. $table .' SET '. implode(',', array_map(function ($k) {
-                return $k . ' = :'. $k;
-            }, array_keys($data))) .' WHERE id = :id');
+            $query = $this->connexion->prepare('UPDATE ' . $table . ' SET ' . implode(',', array_map(function ($k) {
+                return $k . ' = :' . $k;
+            }, array_keys($data))) . ' WHERE id = :id');
             $query->execute($data);
             return $query->rowCount();
         } catch (\PDOException $e) {
@@ -114,7 +118,7 @@ class Model
     public function delete($table, $id)
     {
         try {
-            $query = $this->connexion->prepare('DELETE FROM '. $table .' WHERE id = :id');
+            $query = $this->connexion->prepare('DELETE FROM ' . $table . ' WHERE id = :id');
             $query->execute([
                 'id' => $id
             ]);
