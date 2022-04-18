@@ -1,7 +1,8 @@
-<?php  declare(strict_types=1);
+<?php
+
+ declare(strict_types=1);
 
 namespace Core\QueryBuilder;
-
 
 /**
  * @author  : Mohammed Bensaad
@@ -166,7 +167,7 @@ class QueryBuilder
      */
     public function update(string $table): self
     {
-        $this->update[] = $table;     
+        $this->update[] = $table;
         return $this;
     }
 
@@ -181,21 +182,20 @@ class QueryBuilder
         return $this;
     }
 
-  
+
     /**
      * @return string
      */
     public function __toString(): string
     {
-       
         $query = 'SELECT ' . implode(', ', $this->fields) . ' FROM ' . implode(', ', $this->from);
 
-        
+
         if ($this->conditions) {
             $query .= ' WHERE ' . implode(' AND ', $this->conditions);
         }
-        
-      
+
+
         if ($this->groupBy) {
             $query .= ' GROUP BY ' . implode(', ', $this->groupBy);
         }
@@ -224,8 +224,4 @@ class QueryBuilder
     {
         return $this->__toString();
     }
-
-
-   
-
 }

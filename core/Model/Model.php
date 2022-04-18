@@ -1,19 +1,19 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Core\Model;
 
 use Core\Database\Connection;
 
-
 class Model
 {
-
     private $connection;
     public function __construct()
     {
         $this->connexion =  Connection::get()->connect();
     }
-  
+
 
     /**
      * return all rows from a table
@@ -21,8 +21,9 @@ class Model
      * @return array
      * @throws \PDOException
      * @author : Mohammed Bensaad
-     */   
-    public function getAll($table){
+     */
+    public function getAll($table)
+    {
         try {
             $query = $this->connexion->prepare("SELECT * FROM $table");
             $query->execute();
@@ -31,8 +32,6 @@ class Model
         } catch (\PDOException $e) {
             throw new \Exception("Error connecting to the database: " . $e->getMessage());
         }
-               
-
     }
 
     /**
@@ -44,7 +43,8 @@ class Model
      * @throws \PDOException
      * @author : Mohammed Bensaad
      */
-    public function find($table, $id){
+    public function find($table, $id)
+    {
         try {
             $query = $this->connexion->prepare("SELECT * FROM $table WHERE id = :id");
             $query->execute([
@@ -55,7 +55,6 @@ class Model
         } catch (\PDOException $e) {
             throw new \Exception("Error connecting to the database: " . $e->getMessage());
         }
-        
     }
 
     /**
@@ -67,17 +66,16 @@ class Model
      * @throws \PDOException
      * @author : Mohammed Bensaad
      */
-    public function insert($table, $data )
+    public function insert($table, $data)
     {
         try {
-        $query = $this->connexion->prepare('INSERT INTO '. $table .'('. implode(',', array_keys($data)) .') VALUES (:'. implode(', :', array_keys($data)) .')');
-        
-        $query->execute($data);
-        return $this->connexion->lastInsertId();
+            $query = $this->connexion->prepare('INSERT INTO '. $table .'('. implode(',', array_keys($data)) .') VALUES (:'. implode(', :', array_keys($data)) .')');
+
+            $query->execute($data);
+            return $this->connexion->lastInsertId();
         } catch (\PDOException $e) {
             throw new \Exception("Error connecting to the database: " . $e->getMessage());
         }
-        
     }
 
     /**
@@ -90,10 +88,10 @@ class Model
      * @throws \PDOException
      * @author : Mohammed Bensaad
      */
-    public function update(string $table, array $data){
-
+    public function update(string $table, array $data)
+    {
         try {
-            $query = $this->connexion->prepare('UPDATE '. $table .' SET '. implode(',', array_map(function($k){
+            $query = $this->connexion->prepare('UPDATE '. $table .' SET '. implode(',', array_map(function ($k) {
                 return $k . ' = :'. $k;
             }, array_keys($data))) .' WHERE id = :id');
             $query->execute($data);
@@ -101,10 +99,8 @@ class Model
         } catch (\PDOException $e) {
             throw new \Exception("Error connecting to the database: " . $e->getMessage());
         }
-           
-       
     }
-    
+
 
     /**
      * delete a row in the database
@@ -115,8 +111,9 @@ class Model
      * @throws \PDOException
      * @author : Mohammed Bensaad
      */
-    public function delete( $table, $id)
-    {       try{
+    public function delete($table, $id)
+    {
+        try {
             $query = $this->connexion->prepare('DELETE FROM '. $table .' WHERE id = :id');
             $query->execute([
                 'id' => $id
@@ -124,10 +121,6 @@ class Model
             return $query->rowCount();
         } catch (\PDOException $e) {
             throw new \Exception("Error connecting to the database: " . $e->getMessage());
-        }  
-            
-
+        }
     }
-
-
 }

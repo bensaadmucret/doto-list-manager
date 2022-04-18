@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Core\Router;
 
@@ -20,7 +22,7 @@ class Route
         $this->name = $name;
     }
 
-     
+
 
     public function match($url)
     {
@@ -31,9 +33,9 @@ class Route
             return false;
         }
         array_shift($matches);
-       
+
         $this->matches = $matches;
-        
+
         return true;
     }
 
@@ -41,13 +43,13 @@ class Route
     {
         if (is_string($this->callable)) {
             $params = explode('@', $this->callable);
-            $controller = router::getNameSpace() . $this->getController();           
-            $action = $params[1];  
-            $controller = new $controller();    
-               
-                
-          
-            call_user_func_array([ $controller, $action], $this->matches);
+            $controller = router::getNameSpace() . $this->getController();
+            $action = $params[1];
+            $controller = new $controller();
+
+
+
+            call_user_func_array([$controller, $action], $this->matches);
         } else {
             call_user_func_array($this->callable, $this->matches);
         }

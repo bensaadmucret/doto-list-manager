@@ -1,17 +1,16 @@
-<?php declare(strict_types=1);
+<?php
 
+declare(strict_types=1);
 
 namespace Core\Database;
 
 use Core\DotEnv;
-
 
 /**
  * Represent the Connection
  */
 class Connection
 {
-
     /**
      * Connection
      * @var type
@@ -25,9 +24,7 @@ class Connection
      */
     public function connect()
     {
-        
-
-       (new DotEnv(__DIR__ . DS .'.env'))->load();
+        (new DotEnv(__DIR__ . DS .'.env'))->load();
 
         $conStr = sprintf(
             "mysql:host=%s;port=%d;dbname=%s;user=%s;password=%s",
@@ -36,16 +33,15 @@ class Connection
             getenv('Database'),
             getenv('Username'),
             getenv('Password')
-           
         );
-      
+
         try {
             $pdo = new \PDO($conStr);
             $pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         } catch (\PDOException $e) {
             throw new \Exception("Error connecting to the database: " . $e->getMessage());
-        }     
-        
+        }
+
 
         return $pdo;
     }

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Core\Container\testClass;
 
 use Core\Container\testClass\Foo;

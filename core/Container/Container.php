@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Core\Container;
 
@@ -9,11 +11,8 @@ use Psr\Container\ContainerInterface;
 use Core\Container\ResolverContainerInterface;
 use Core\Container\Exception\ExceptionContainer;
 
-
-
 class Container implements ContainerInterface
 {
-
     /**
      * @var array
      */
@@ -24,8 +23,8 @@ class Container implements ContainerInterface
     {
         $this->services = $services;
     }
-    
-    
+
+
 
     /**
      * {@inheritDoc}
@@ -61,7 +60,6 @@ class Container implements ContainerInterface
      */
     public function resolve(ReflectionMethod $method)
     {
-        
         if (!$method->isPublic()) {
             throw new ExceptionContainer('Method is not public');
         }

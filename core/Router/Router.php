@@ -1,9 +1,8 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Core\Router;
-
-
-
 
 if (!empty($_SERVER['HTTP_HOST'])) {
     define('ABSOLUTE_PATH', $_SERVER['HTTP_HOST']);
@@ -19,15 +18,13 @@ class Router
     public static $namespace;
     public $callable;
     private string $method;
-  
+
 
     public function __construct()
     {
         $request = Request::createFromGlobals();
         $this->url = $request->getPathInfo();
         $this->method = $request->getMethod();
-       
-        
     }
 
 
@@ -41,12 +38,10 @@ class Router
     public function add(string $method, string $path, $callable, string $name)
     {
         $route = new Route($method, $path, $callable, $name);
-  
+
         $this->routes[] = [$route];
-     
-            
     }
-    
+
 
     /*Utilisez la méthode PUT pour mettre à jour ou insérer une ressource. Une demande de mise à jour doit fournir l'ID unique de la ressource. Pour mettre à jour une ressource de structure d'objet, l'ID de l'objet principal est requis.*/
     public function put(string $path, $callable, string $name)
@@ -54,7 +49,7 @@ class Router
         $this->add('PUT', $path, $callable, $name);
     }
 
-    
+
 
 
     /**
@@ -77,8 +72,8 @@ class Router
     }
 
 
-  
-   
+
+
     /**
      * retourne la méthode courante
      * @param string $name
@@ -91,7 +86,7 @@ class Router
         }
         throw new \Exception('No method found');
     }
-      
+
 
 
     /**
@@ -99,17 +94,15 @@ class Router
      * @return Route
      */
     public function getRoute($name)
-    {   
-        
+    {
         foreach ($this->routes as $route) {
             foreach ($route as $r) {
-                
                 if ($r->name === $name) {
                     return $r;
                 }
             }
         }
-        
+
         throw new \Exception('No route found for this url');
     }
 
@@ -136,8 +129,8 @@ class Router
     {
         return $this->url;
     }
-        
-   
+
+
     /**
      *
      * @param string $url
@@ -148,10 +141,9 @@ class Router
     public function run()
     {
         foreach ($this->routes as $route) {
-           
             foreach ($route as $r) {
-                $r->method = $this->getMethod(); 
-              
+                $r->method = $this->getMethod();
+
                 if (!isset($r->method)) {
                     throw new RouterException('REQUEST_METHOD does not exist');
                 }
@@ -163,8 +155,8 @@ class Router
         throw new RouterException('No matching routes');
     }
 
-    
-    
+
+
 
 
     /**
@@ -188,7 +180,7 @@ class Router
     {
         return self::$namespace;
     }
-    
+
     /**
      * display the url of the route
      *

@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Controller;
 
@@ -13,25 +15,22 @@ class HomeController extends BaseController
 
     public function index()
     {
-        $this->render('home/index', [        
-    
+        $this->render('home/index', [
+
         ], 'default');
     }
 
     public function show()
     {
-        $this->render('home/show', [        
-           
+        $this->render('home/show', [
+
         ], 'default');
     }
 
     public function add()
     {
-        $this->render('home/add', [        
-           
+        $this->render('home/add', [
+
         ], 'default');
     }
-
-
-    
 }

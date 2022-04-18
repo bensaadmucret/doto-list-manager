@@ -1,11 +1,13 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Core\FormBuilder;
 
 class FormBuilder
 {
     private $form = '';
-   
+
 
     /**
      * create form
@@ -16,7 +18,7 @@ class FormBuilder
     {
         return $this->form;
     }
-    
+
 
     /**
      * Début de la balise form
@@ -43,7 +45,7 @@ class FormBuilder
         $this->form .= '<input type="hidden" name="token" value="' . $token . '">';
         return $this;
     }
-    
+
     /**
      * Ajoute les attributs du formulaire
      *
@@ -64,7 +66,7 @@ class FormBuilder
         }
         return  $attribute_data;
     }
-       
+
     /**
      * add input
      *
@@ -118,7 +120,7 @@ class FormBuilder
      * @param array $attributs
      * @return Form
      */
-    public function addBouton(string $texte, array $attributs = []):self
+    public function addBouton(string $texte, array $attributs = []): self
     {
         $this->form .= '<button ';
         $this->form .= $attributs ? $this->addAttributes($attributs) : '';
@@ -133,14 +135,14 @@ class FormBuilder
      * @param string $value
      * @return self
      */
-    public function addTextarea(string $name,  array $attributs = []): self
+    public function addTextarea(string $name, array $attributs = []): self
     {
         $this->form .='<textarea name="' . $name . '"';
         $this->form .= $attributs ? $this->addAttributes($attributs).'>' : '>';
         $this->form .= '</textarea>';
         return $this;
     }
-    
+
     /**
      * add Sélect
      *
@@ -162,7 +164,7 @@ class FormBuilder
         $this->form .='</select>';
         return $this;
     }
-    
+
     /**
      * addCheckbox
      *
@@ -174,10 +176,10 @@ class FormBuilder
     public function addCheckbox(string $name, string $value = '', bool $checked = false): self
     {
         $this->form .='<input type="checkbox" name="' . $name . '" value="' . $value . '"';
-        $this->form .= $checked  ? 'checked=checked />' : '/>';
+        $this->form .= $checked ? 'checked=checked />' : '/>';
         return $this;
     }
-    
+
     /**
      * addRadio
      *
@@ -194,7 +196,7 @@ class FormBuilder
         }
         return $this;
     }
-    
+
     /**
      * addHidden
      *
@@ -207,7 +209,7 @@ class FormBuilder
         $this->form .='<input type="hidden" name="' . $name . '" value="' . $value . '" />';
         return $this;
     }
-    
+
     /**
      * addFile
      *
@@ -228,7 +230,7 @@ class FormBuilder
      * @param array $attributs
      * @return Form
      */
-    public function addFor(string $name, string $texte, array $attributs = []):self
+    public function addFor(string $name, string $texte, array $attributs = []): self
     {
         $this->form .= "<label for='$name'";
         $this->form .= $attributs ? $this->addAttributes($attributs) : '';
@@ -269,7 +271,7 @@ class FormBuilder
     }
 
 
-   
+
     /**
      * addAttributes
      *
@@ -281,20 +283,20 @@ class FormBuilder
         return $this->form;
     }
 
-    
-    
+
+
     /**
      * close form
      *
      * @return self
      */
-    public function endForm():self
+    public function endForm(): self
     {
         $this->form .= '</form>';
         return $this;
     }
 
-    public function setRequired(string $name, string $texte, array $attributs = []):self
+    public function setRequired(string $name, string $texte, array $attributs = []): self
     {
         $this->form .= "<label for='$name'";
         $this->form .= $attributs ? $this->addAttributes($attributs) : '';

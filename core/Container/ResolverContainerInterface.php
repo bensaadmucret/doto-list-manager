@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Container;
 
@@ -11,7 +13,6 @@ use Psr\Container\ContainerInterface;
  */
 interface ResolverContainerInterface extends ContainerInterface
 {
-
     /**
      * Resolve service arguments
      *
