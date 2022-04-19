@@ -32,7 +32,6 @@
                                 <select name="status[]" class="form-control" id="satus">
                                     <option value="En attente">En attente</option>
                                     <option value="Terminé">Terminé</option>
-                                    <option value="En cours">En cours</option>
                                     <option value="Annulé">Annulé</option>
                                     <option <?php echo 'selected'; ?> name="status" value="en cours">En cours</option>
                                 </select>
@@ -57,53 +56,53 @@
             <?php get_flash_message_error(); ?>
             <?php get_flash_message_success(); ?>
         </div>
-       
+
         <div class="col-xl-8 col-lg-12">
             <div class="card border-0 pb-0">
                 <div class="card-header border-0 pb-0">
                     <h4 class="card-title">Liste : <?php echo $list['name']; ?></h4>
                 </div>
                 <div class="todo-list"></div>
-                <div  id="case_list" class="card-body">
-                    <div id="DZ_W_Todo4" class="widget-media dz-scroll ps ps--active-y">
-                        <ul class="timeline">
-                         
-                            <?php foreach($tasks as $task):?>
-                            <li>
-                                <div class="timeline-panel">
-                                    <div class="custom-control custom-checkbox checkbox-warning check-lg mr-3">
-                                        <input type="checkbox" class="custom-control-input" id="Custom<?php echo $task['id'] ?? ''; ?>"
-                                            required="">
-                                        <label class="custom-control-label" for="Custom<?php echo $task['id'] ?? ''; ?>"></label>
-                                    </div>
-                                    <div class="media-body">
-                                        <h5 class="mb-0"><?php echo $task['name']; ?></h5>
-                                        <small class="text-muted"><?php echo $task['created_at']; ?></small>
-                                    </div>
-                                    <div class="dropdown">
-                                        <button type="button" class="btn btn-warning light sharp" data-toggle="dropdown"
-                                            aria-expanded="false">
-                                            <svg width="18px" height="18px" viewBox="0 0 24 24" version="1.1">
-                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                    <rect x="0" y="0" width="24" height="24"></rect>
-                                                    <circle fill="#000000" cx="5" cy="12" r="2"></circle>
-                                                    <circle fill="#000000" cx="12" cy="12" r="2"></circle>
-                                                    <circle fill="#000000" cx="19" cy="12" r="2"></circle>
-                                                </g>
-                                            </svg>
-                                        </button>
-                                        <div class="dropdown-menu" x-placement="bottom-start"
-                                            style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 40px, 0px);">
-                                            <a class="dropdown-item" href="#">Edit</a>
-                                            <a class="dropdown-item" href="#">Delete</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <?php endforeach; ?>
-                        </ul>
+                <div id="case_list" class="card-body">
 
-                    </div>
+                    <!--LISTE DES TACHES AVEC CHECKBOX-->
+                    <?php foreach ($tasks as $task) : ?>
+                    <form class="formAjax">
+                        <div class="form-check d-flex">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" <?php if ($task['status'] == 'Terminé') {
+                                    echo 'checked';
+                                } ?>>
+                            <label class="form-check-label" for="defaultCheck1">
+                                <?php echo $task['name']; ?>
+                            </label>
+                            <input type="hidden" name="task_id" value="<?php echo $task['id']; ?>">
+                            <input type="hidden" name="list_id" value="<?php echo $list['id']; ?>">
+                            <input type="hidden" name="status" value="<?php echo $task['status']; ?>">
+                            <input type="hidden" name="name" value="<?php echo $task['name']; ?>">
+                        </div>
+                        <div class="dropdown text-right">
+                            <button type="button" class="btn btn-warning light sharp" data-toggle="dropdown"
+                                aria-expanded="false">
+                                <svg width="18px" height="18px" viewBox="0 0 24 24" version="1.1">
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <rect x="0" y="0" width="24" height="24"></rect>
+                                        <circle fill="#000000" cx="5" cy="12" r="2"></circle>
+                                        <circle fill="#000000" cx="12" cy="12" r="2"></circle>
+                                        <circle fill="#000000" cx="19" cy="12" r="2"></circle>
+                                    </g>
+                                </svg>
+                            </button>
+                            <div class="dropdown-menu" x-placement="bottom-start"
+                                style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 40px, 0px);">
+                                <a class="dropdown-item" href="#">Edit</a>
+                                <a class="dropdown-item" href="#">Delete</a>
+                            </div>
+                        </div>
+                    </form>
+                    <?php endforeach; ?>
+
+
+
                 </div>
             </div>
         </div>

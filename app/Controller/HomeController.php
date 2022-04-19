@@ -19,9 +19,11 @@ class HomeController extends BaseController
     public function index()
     {
         $list = $this->model->getAll('list');
+        $task = $this->model->getAll('task');
         $this->render('home/index', [
             'form' => Authenticator::listForm(),
             'lists' => $list,
+            'tasks' => $task,
 
         ], 'default');
     }
@@ -117,4 +119,47 @@ class HomeController extends BaseController
             'tasks' => $tasks,
         ], 'default');
     }
+
+
+    public function ajax_update_task()
+    {
+      
+        dump($_POST);
+     
+        if ($this->request->isMethod('post')) {
+            $id = $this->request->get('task_id'); 
+            $name = $this->request->get('name');
+                   
+            $status = $this->request->get('status');
+            $list_id = $this->request->get('list_id');
+           
+            $this->traitement_ajax($id, $status, $list_id);
+            Flash::setMessage('success', 'Tâche '. $name  . ' modifié avec succès');
+            echo $list_id;
+            exit;
+        }
+
+
+    }
+
+    private function traitement_ajax($id, $status, $list_id)
+    {
+        if($status == 'en cours'){
+            $status = 'Terminé';
+        }else{
+            $status = 'en cours';
+        }
+        $query = $this->connection->prepare("UPDATE task SET status = :status WHERE id = :id");
+        $query->execute([
+            'id' => $id,
+            'status' => $status,
+        ]);
+        $query = $this->connection->prepare("UPDATE list SET updated_at = :updated_at WHERE id = :id");
+        $query->execute([
+            'id' => $list_id,
+            'updated_at' => date('Y-m-d H:i:s'),
+        ]);
+    }
+  
+    
 }

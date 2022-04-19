@@ -19,42 +19,72 @@ window.addEventListener("DOMContentLoaded", (event) => {
     });
 
     if (!response.ok) {
-       throw new Error(`HTTP error! status: ${response.status}`);
-     }
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
 
     const data = await response.text();
 
-    if(data){
+    if (data) {
       console.log("ok");
-          
+
 
       window.location.href = window.location.origin + "/show-list/" + data;
     }
 
   }//postData
 
-     const card = document.querySelector('#DZ_W_Todo4');
-     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-     const countCheckboxes = checkboxes.length;
-     let span = document.querySelector('.title-todo');
-     span.innerHTML = countCheckboxes;
-     span.style.display = "block";
-     console.log(countCheckboxes);
+  const card = document.querySelectorAll('.formAjax');
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  let countCheckboxes = checkboxes.length;
+  const span = document.querySelector('.title-todo');
+
+  function conteur(countCheckboxes, span) {
+    span.innerHTML = countCheckboxes;
+    span.style.display = "inline-block";
+  }
+  conteur(countCheckboxes, span);
+
+
+  card.forEach( (card) => {
+    card.addEventListener('click', function (event) {
+     
    
-  console.log(card);
-      card.addEventListener('click',  (event) => {
-        console.log("click");
+    if(event.target.tagName === 'INPUT'){
+      const formattedFormCard = new FormData(card);
+      ajax_update_task(formattedFormCard);
+    }
 
-        if (event.target.tagName === 'INPUT') {
-          console.log("input");
-          let checkboxes = document.querySelectorAll('input[type="checkbox"]');
-          let countCheckboxes = checkboxes.length;
-          countCheckboxes--;
-          let span = document.querySelector('.title-todo');
-          span.innerHTML = countCheckboxes;
-          span.style.display = "block";
-          console.log(countCheckboxes);
-        }
-      });
+    
+  });
 
-});// fin de la fonction d'écoute de l'événement DOMContentLoaded
+  async function ajax_update_task(formattedFormCard) {
+    let url = window.location.origin + "/update-task";
+    const response = await fetch(url, {
+      method: 'POST',
+      body: formattedFormCard
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.text();
+
+    if (data) {
+      console.log("ok");
+     // decrémenter le nombre de checkbox avec la fonction countCheckboxes
+      
+      
+
+    }
+    
+    window.location.href = window.location.origin + "/show-list/" + data;
+
+
+  }//ajax_update_task
+  
+  
+  });    
+
+    
+});

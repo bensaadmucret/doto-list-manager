@@ -19,6 +19,8 @@ class Application
         $router->add('GET', 'show-list/:id', 'HomeController@show_list', 'show_list');
         $router->add('POST', 'show-list/:id', 'HomeController@show_list', 'show_list');
         $router->add('POST', 'add-task', 'HomeController@add_task', 'add_task');
+        $router->add('POST', 'update-task', 'HomeController@ajax_update_task', 'update_task');
+        $router->add('POST', 'delete-task', 'HomeController@delete_task', 'delete_task');
 
 
 

@@ -11,7 +11,7 @@
 		headerBg: "color_1",
 		navheaderBg: "color_1",
 		sidebarBg: "color_1",
-		sidebarStyle: "mini",
+		sidebarStyle: "overlay",
 		sidebarPosition: "static",
 		headerPosition: "fixed",
 		containerLayout: "full",
