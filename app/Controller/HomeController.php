@@ -28,21 +28,15 @@ class HomeController extends BaseController
         ], 'default');
     }
 
-    /**
-     * return all rows from a table
-     *
-     * @return void
-     */
-    public function show()
-    {
-
-        $this->render('home/show', [], 'default');
-    }
+ 
 
     public function add_list()
     {
         if ($this->request->isMethod('post')) {
             $nom = $this->request->get('nom');
+            if (empty($nom)) {
+                return $this->redirect('', 302, 'error', 'Le nom est obligatoire');
+            }
             $token = $this->request->get('token');
             if ($token == $_SESSION['csrf_token']) {
                 $datas = [
@@ -76,6 +70,41 @@ class HomeController extends BaseController
             'tasks' => $tasks,
             'form' => Authenticator::taskForm(),
         ], 'default');
+    }
+
+
+    public function edit_list($id)
+    {
+        
+        if ($this->request->isMethod('post')) {
+            $nom = $this->request->get('name');
+            $id = $this->request->get('id');
+            if (empty($nom)) {
+                return $this->redirect('', 302, 'error', 'Le nom est obligatoire');
+            }
+           
+                $datas = [
+                    'id' => $id,
+                    'name' => strip_tags($nom),
+                    'updated_at' => date('Y-m-d H:i:s'),
+                ];
+                $this->model->update('list', $datas);
+                return $this->redirect('', 302, 'success', 'Liste modifié avec succès');
+            
+        }
+
+        return $this->redirect('/', 302, 'danger', 'Erreur de modification');
+    }
+
+    public function delete_list($id)
+    {
+        if($this->request->isMethod('post')){           
+            
+                $this->model->delete('list', $id);
+                return $this->redirect('', 302, 'success', 'Liste supprimé avec succès');
+            
+        }
+        
     }
 
     public function add_task()
@@ -124,7 +153,7 @@ class HomeController extends BaseController
     public function ajax_update_task()
     {
       
-        dump($_POST);
+       
      
         if ($this->request->isMethod('post')) {
             $id = $this->request->get('task_id'); 
@@ -159,6 +188,42 @@ class HomeController extends BaseController
             'id' => $list_id,
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
+    }
+
+    public function edit_task($id)
+    {   //dump($this->request);
+        if ($this->request->isMethod('post')) {
+            $nom = $this->request->get('nom');
+            $id = $this->request->get('task_id');
+            $status = $this->request->get('status');
+            if (empty($nom)) {
+                return $this->redirect('', 302, 'error', 'Le nom est obligatoire');
+            }
+            $datas = [
+                'id' => $id,
+                'name' => strip_tags($nom),
+                'status' => strip_tags($status),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ];
+            $this->model->update('task', $datas);
+            return $this->redirect('', 302, 'success', 'Tâche modifié avec succès');
+        }
+
+        return $this->redirect('', 302, 'danger', 'Erreur de modification');
+    }
+
+
+    public function delete_task($id)
+    {
+       if ($this->request->isMethod('post')) {
+           $id = $this->request->get('task_id');
+                           
+           $this->model->delete('task', $id);
+           return $this->redirect('', 302, 'success', 'Tâche supprimé avec succès');
+       }
+       return $this->redirect('', 302, 'danger', 'Erreur de suppression');    
+      
+        
     }
   
     

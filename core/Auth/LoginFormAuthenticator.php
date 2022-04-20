@@ -22,7 +22,7 @@ class LoginFormAuthenticator
          $form = new FormBuilder();
          $form->startForm('add-list', 'post', 'show-list')
         ->addFor('Nom','<h4>Nom</h4>', ['type' => 'text', 'placeholder' => 'titre'])
-        ->addText('nom', 'nom', ['type' => 'text', 'placeholder' => 'titre', 'class' => 'form-control mb-2'])
+        ->addText('nom', '', ['type' => 'text', 'placeholder' => 'titre', 'class' => 'form-control mb-2', 'required'])
         ->addToken($token)
         ->addBouton('Valider',  ['type' => 'submit', 'class' => 'btn btn-primary'])
         ->addBouton('Annuler',  ['type' => 'reset', 'class' => 'btn btn-secondary m-1', 'data-dismiss'=>'modal'])

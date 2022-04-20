@@ -44,17 +44,12 @@
             Nav header start
         ***********************************-->
         <div class="nav-header">
-            <a href="index.html" class="brand-logo">
-                <img class="logo-abbr" src="./images/logo.png" alt="">
-                <img class="logo-compact" src="./images/logo-text.png" alt="">
-                <img class="brand-title" src="./images/logo-text.png" alt="">
+            <a href="/" class="brand-logo ">
+                <img class="" src="/images/logo.png" alt="Logo">
+               
             </a>
 
-            <div class="nav-control">
-                <div class="hamburger">
-                    <span class="line"></span><span class="line"></span><span class="line"></span>
-                </div>
-            </div>
+            
         </div>
         <!--**********************************
             Nav header end
@@ -107,26 +102,7 @@
         <!--**********************************
             Sidebar start
         ***********************************-->
-        <div class="deznav">
-            <div class="deznav-scroll">
-                <ul class="metismenu mt-5" id="menu">
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-381-notepad"></i>
-                            <span class="nav-text">Dashboard</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="/">Dashboard</a></li>
-                            <li><a href="page-analytics.html">Analytics</a></li>
-                            <li><a href="page-review.html">Review</a></li>
-                            <li><a href="page-order.html">Order</a></li>
-                            <li><a href="page-order-list.html">Order List</a></li>
-                            <li><a href="page-general-customers.html">General Customers</a></li>
-                        </ul>
-                    </li>
-                </ul>
-
-            </div>
-        </div>
+        
         <!--**********************************
             Sidebar end
         ***********************************-->
@@ -137,6 +113,7 @@
         <div class="content-body">
             <div class="container">
                 <div class="row page-titles mx-0">
+  
                     <?php echo $content; ?>
                 </div>
             </div>

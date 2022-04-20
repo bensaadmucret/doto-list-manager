@@ -33,11 +33,13 @@ $lists = $model->getAll('list');
                                                 <p><?php echo dateFormate($list['created_at'] ?? ''); ?></p>
                                             </div>
                                             <div class="ml-auto">
-                                           
+                                                <?php // créer un lien cliquable vers la liste 
+                                                
+                                                echo '<a href="'. assets('/show-list/'. $list['id']) .'" class="btn btn-primary btn-xs sharp mr-1"><i class="fa fa-eye"></i></a>  ';
+                                                
+                                                    ?>
                                                     
-                                                <a href="how-list/<?php echo $list['id'] ?? "" ?>" type="submit" class="btn btn-primary btn-xs sharp mr-1">
-                                                    <i class="fa fa-eye"></i>
-                                                </a>
+                               
                                             
                                                
                                             </div>
