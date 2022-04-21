@@ -13,7 +13,7 @@ function assets($path)
     $httpRequest  = Request::createFromGlobals();
     $baseUrl = $httpRequest->server->get('HTTP_HOST');
    
-    $baseUrl = 'http://'.$baseUrl;
+    $baseUrl = 'https://'.$baseUrl;
     return $baseUrl . $path;
 }
 
