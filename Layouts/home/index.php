@@ -74,7 +74,7 @@
                                        
                                         // $progression = ($count_done * 100) / count($tasks);
                                         // On affiche la progression
-                                        echo ' <span class="badge badge-success m-2">Tâches terminé : ' . $progression . '%</span>';
+                                        echo '<h4> Tâches terminé : <span class="badge badge-success m-2">' . $progression . '%</span></h4>';
                                         // On compte le nombre de tâches encore en cours
                                         $count_in_progress = 0;
                                         foreach ($tasks as $task) {
