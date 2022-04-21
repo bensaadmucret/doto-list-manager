@@ -2,8 +2,8 @@
     <div class="row">
         <div class="col-sm-12 col-md-12 mb-2">
             <!--Bouton pour retourner a la page d'accueil-->
-            <button href='<?php echo assets('/'); ?>' class="btn btn-outline-white">
-                <i class="fa fa-backward"></i> Retour</button>
+           <a href='<?php echo assets('/'); ?>'>
+            <button  class="btn btn-outline-white"> <i class="fa fa-backward"></i> Retour</button></a>
 
         </div>
         <div class="col-sm-12 col-md-12">
