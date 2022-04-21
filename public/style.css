@@ -6404,15 +6404,5 @@ header#header ul.right {
 
 .dataTables_wrapper .dataTables_info {
   padding: 10px 0;
-  display: none;
-}
-
-.btn-outline-danger {
-  color: #fff !important;
-  border-color: #1afff4 !important;
-}
-
-.btn-outline-white {
-  color: #fff;
-  border-color: #fff;
+  display: none !important;
 }
