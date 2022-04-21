@@ -101,7 +101,7 @@
                                  <?php foreach ($lists as $list) : ?>
 
                                  <tr>
-                                     <td><i class="lni lni-pin"></i><?php echo $list['name'] ?? "" ?></td>
+                                     <td><span class="badge badge-success m-2"><i class="lni lni-pin"></i></span><?php echo $list['name'] ?? "" ?></td>
 
 
 
