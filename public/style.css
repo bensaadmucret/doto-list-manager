@@ -6416,15 +6416,3 @@ header#header ul.right {
 
 }
 
-
-.badge-task {
-  background-color: #db48b9!important;
-  padding: 5px 10px;
-  border-radius: 50%;
-  color: #fff;
-}
-
-.badge-task:hover {
-  background-color: #8943d9!important;
-  
-}
