@@ -94,7 +94,7 @@
 
                                         
                                         // on affiche la progression
-                                        echo ' <span class="badge badge-danger m-2">Tâches en cours : ' . $progression . '%</span>';
+                                        echo '<h4> Tâches en cours : <span class="badge badge-danger m-2">' . $progression . '%</span></h4>';
                                         // On compte le nombre de tâches terminées 
 
                                         ?>
