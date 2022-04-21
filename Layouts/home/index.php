@@ -55,7 +55,7 @@
                                  <h2>Progression globale</h2>
                                  <div class="progression d-flex">
                                      <?php
-                                        // On compte le nombre de tâches terminées
+                                       
 
                                         $count_done = 0;
                                         foreach ($tasks as $task) {
@@ -68,14 +68,13 @@
                                         if($count_done == 0){
                                             $progression = 0;
                                         }else{
-                                             // On calcule la progression en arrondissant
+                                            
                                         $progression = round(($count_done / count($tasks)) * 100);
                                         }
                                        
-                                        // $progression = ($count_done * 100) / count($tasks);
-                                        // On affiche la progression
+                                       
                                         echo '<h4> Tâches terminé : <span class="badge badge-success m-2">' . $progression . '%</span></h4>';
-                                        // On compte le nombre de tâches encore en cours
+                                       
                                         $count_in_progress = 0;
                                         foreach ($tasks as $task) {
                                             if ($task['status'] == 'en cours') {
@@ -87,22 +86,22 @@
                                         if($count_in_progress == 0){
                                             $progression = 0;
                                         }else{
-                                             // On calcule la progression en arrondissant
+                                            
                                         $progression = round(($count_in_progress / count($tasks)) * 100);
                                         }
                                        
 
                                         
-                                        // on affiche la progression
+                                        
                                         echo '<h4> Tâches en cours : <span class="badge badge-danger m-2">' . $progression . '%</span></h4>';
-                                        // On compte le nombre de tâches terminées 
+                                        
 
                                         ?>
                                  </div>
                                  <?php foreach ($lists as $list) : ?>
 
                                  <tr>
-                                     <td><?php echo $list['name'] ?? "" ?></td>
+                                     <td><i class="fa-solid fa-thumbtack"></i><?php echo $list['name'] ?? "" ?></td>
 
 
 
