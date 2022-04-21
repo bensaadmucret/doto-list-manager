@@ -1,5 +1,5 @@
      <div class="col-sm text-left">
-         <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#addListModal">
+         <button type="button" class="btn btn-outline-white" data-toggle="modal" data-target="#addListModal">
              <i class="fa fa-plus"></i> Nouvelle liste
          </button>
      </div>
