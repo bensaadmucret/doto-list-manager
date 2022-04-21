@@ -29538,3 +29538,19 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
    color: #fff;
    text-decoration: none;
  }
+
+ .btn-outline-white{
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+ }
