@@ -6408,6 +6408,6 @@ header#header ul.right {
 }
 
 .btn-outline-danger {
-  color: #fff;
-  border-color: #1afff4;
+  color: #fff !important;
+  border-color: #1afff4 !important;
 }
