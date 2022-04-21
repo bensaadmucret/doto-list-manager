@@ -8,11 +8,9 @@
     <title>Application de gestion de listes de tâches</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png">
-    <link href="<?php echo  assets('/ressources/base/bootstrap-select/dist/css/bootstrap-select.min.css');?>"
-        rel="stylesheet">
+   
     <link href="<?php echo  assets('/ressources/base/jqvmap/css/jqvmap.min.css');?>" rel="stylesheet">
-    <link href="<?php echo  assets('/ressources/base/bootstrap-select/dist/css/bootstrap-select.min.css');?>"
-        rel="stylesheet">
+    
     <link href="<?php echo  assets('/ressources/base/datatables/css/jquery.dataTables.min.css');?>" rel="stylesheet">
     <link href="<?php echo  assets('/ressources/css/style.css" rel="stylesheet');?>" rel="stylesheet">
     <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
