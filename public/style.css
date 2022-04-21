@@ -6411,3 +6411,8 @@ header#header ul.right {
   color: #fff !important;
   border-color: #1afff4 !important;
 }
+
+.btn-outline-white {
+  color: #fff;
+  border-color: #fff;
+}

@@ -2,12 +2,12 @@
     <div class="row">
         <div class="col-sm-12 col-md-12 mb-2">
             <!--Bouton pour retourner a la page d'accueil-->
-            <a href='<?php echo assets('/'); ?>' class="btn btn-outline-danger">
+            <a href='<?php echo assets('/'); ?>' class="btn btn-outline-white">
                 <i class="fa fa-backward"></i> Retour</a>
 
         </div>
         <div class="col-sm-12 col-md-12">
-            <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
+            <button type="button" class="btn btn-outline-white" data-toggle="modal" data-target="#exampleModal">
                 <i class="fa fa-plus"></i> Tâches
             </button>
         </div>
