@@ -6,7 +6,6 @@ namespace App\Controller;
 
 use Core\Flash\Flash;
 use Core\Controller\BaseController;
-use Core\QueryBuilder\QueryBuilder;
 use Core\Auth\LoginFormAuthenticator as Authenticator;
 
 class HomeController extends BaseController
@@ -45,11 +44,11 @@ class HomeController extends BaseController
                     'updated_at' => date('Y-m-d H:i:s'),
                 ];
                 $this->model->insert('list', $datas);
-                return $this->redirect('/', 302, 'success', 'Liste ajouté avec succès');
+                return $this->redirect('', 302, 'success', 'Liste ajouté avec succès');
             }
         }
 
-        return $this->redirect('/', 302, 'danger', 'Erreur d\'ajout');
+        return $this->redirect('', 302, 'danger', 'Erreur d\'ajout');
     }
 
     public function show_list($id)
