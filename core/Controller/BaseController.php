@@ -51,7 +51,7 @@ abstract class BaseController
                 Flash::setMessage($key, $message);
             }
 
-            header("Location: http://$host$uri/$extra", true, $statusCode);
+            header("Location: https://$host$uri/$extra", true, $statusCode);
             exit;
         } catch (\Exception $e) {
             return false;

@@ -131,8 +131,8 @@
     ***********************************-->
     <!-- Required bases -->
     <script src="<?php echo assets('/ressources/base/global/global.min.js' );?>"></script>
-    <script src="<?php echo assets('/ressources/base/bootstrap-select/dist/js/bootstrap-select.min.js' );?>"></script>
-    <script src="<?php echo assets('/ressources/base/chart.js/Chart.bundle.min.js' );?>"></script>
+    
+    
     <script src="<?php echo assets('/ressources/js/custom.min.js' );?>"></script>
     <script src="<?php echo assets('/ressources/js/deznav-init.js' );?>"></script>
 
