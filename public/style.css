@@ -6417,10 +6417,10 @@ header#header ul.right {
 }
 
 
-.badge-success {
+.badge-task {
   background-color: #db48b9!important;
 }
 
-.badge-success {
+.badge-task:hover {
   background-color: #8943d9!important;
 }
