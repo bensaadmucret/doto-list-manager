@@ -93,14 +93,15 @@
                                         $progression = round(($count_in_progress / count($tasks)) * 100);
                                         }
                                        ?>
-                                         <div class="progress">
-                                             <div class="progress-bar" role="progressbar" style="width: <?php echo  $progression ?>%;"
-                                                 aria-valuenow="<?php echo  $progression; ?>" aria-valuemin="0" aria-valuemax="100"><?php echo  $progression ?>%</div>
+                                        
+                                         <div class="progress" style="height: 20px;">
+                                             <div class="progress-bar" role="progressbar" style="width: 25%;"
+                                                 aria-valuenow="<?php echo  $progression; ?>" aria-valuemin="0" aria-valuemax="100"><?php echo  $progression; ?>%</div>
                                          </div>
 
-                                        
 
-                                        
+
+
                                      </div>
                                      <?php foreach ($lists as $list) : ?>
 
