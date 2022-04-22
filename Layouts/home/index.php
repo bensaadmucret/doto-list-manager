@@ -36,7 +36,7 @@
      </div>
      <!-- row -->
      <div class="row">
-         <div class="col-8">
+         <div class="col-12">
              <div class="card">
                  <div class="card-header">
                      <h1>Tasks manager</h4>
