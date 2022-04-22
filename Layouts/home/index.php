@@ -89,12 +89,13 @@
                          ?>
 
                          <div class="progress m-2" style="height: 20px;">
-                             <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="<?php echo  $progression; ?>"
-                                 aria-valuemin="0" aria-valuemax="100" style="width: <?php echo  $progression; ?>%;">
-                                 <span class="sr-only"><?php echo  $progression; ?>% Complete</span>
+                             <div class="progress-bar bbg-warning" role="progressbar"
+                                 style="width: <?php echo  $progression; ?>%;"
+                                 aria-valuenow="<?php echo  $progression; ?>" aria-valuemin="0" aria-valuemax="100">
+                                 <?php echo  $progression; ?>%
                              </div>
-                             <span class="progress-type">En cours</span>
-                             
+                             <span class="progress-type px-2">En cours</span>
+
                          </div>
 
 
