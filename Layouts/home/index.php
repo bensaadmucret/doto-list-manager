@@ -70,6 +70,7 @@
                              <span class="progress-type px-2">Tâche globale Terminé</span>
 
                          </div>
+                         <?php
                          $count_in_progress = 0;
                          foreach ($tasks as $task) {
                          if ($task['status'] == 'en cours') {
