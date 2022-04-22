@@ -43,7 +43,7 @@
                      <div class="card-header">
                          <h1>Tasks manager</h4>
                      </div>
-                     <h2 class="col-12 text-center">Progression globale</h2>
+                     <h2 class="text-center">Progression globale</h2>
                      <div class="progression">
                          <?php
                                        
@@ -56,10 +56,11 @@
                                                 $count_done;
                                             }
                                         }
-                                        if ($count_done == 0) {
+                                        if($count_done == 0){
                                             $progression = 0;
-                                        } else {
-                                            $progression = round(($count_done / count($tasks)) * 100);
+                                        }else{
+                                            
+                                        $progression = round(($count_done / count($tasks)) * 100);
                                         }
                                        
                                        
@@ -74,10 +75,11 @@
                                                 $count_in_progress;
                                             }
                                         }
-                                        if ($count_in_progress == 0) {
+                                        if($count_in_progress == 0){
                                             $progression = 0;
-                                        } else {
-                                            $progression = round(($count_in_progress / count($tasks)) * 100);
+                                        }else{
+                                            
+                                        $progression = round(($count_in_progress / count($tasks)) * 100);
                                         }
                                        ?>
 
@@ -86,7 +88,8 @@
                                  aria-valuenow="<?php echo  $progression; ?>" aria-valuemin="0" aria-valuemax="100">
                                  <?php echo  $progression; ?>%</div>
                          </div>
-                        
+                         <div class="container-fluid">
+                             <div class="row">
                                  <div class="progress">
                                      <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0"
                                          aria-valuemax="100" style="width: 60%;">
@@ -103,8 +106,12 @@
                                      <span class="progress-type">ASP.Net</span>
                                      <span class="progress-completed">40%</span>
                                  </div>
+                                
+                                
                                  
-                  
+                             </div>
+                         </div>
+
 
 
                      </div>
