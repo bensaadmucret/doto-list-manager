@@ -43,7 +43,7 @@
                      <div class="card-header">
                          <h1>Tasks manager</h4>
                      </div>
-                     <h2 class="text-center">Progression globale</h2>
+                     <h2 class="text-center mt-3">Progression globale</h2>
                      <div class="progression">
                          <?php
                                        
