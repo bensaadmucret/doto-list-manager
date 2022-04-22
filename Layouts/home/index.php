@@ -43,19 +43,8 @@
                      <div class="card-header">
                          <h1>Tasks manager</h4>
                      </div>
-                     <div class="card-body">
-                         <div class="table-responsive">
-                             <table id="example4" class="display">
-                                 <thead>
-                                     <tr>
-                                         <th>Vos listes</th>
-
-                                         <th>Action</th>
-                                     </tr>
-                                 </thead>
-                                 <tbody>
-                                     <h2 class="col-12 text-center">Progression globale</h2>
-                                     <div class="progression row">
+                     <h2 class="col-12 text-center">Progression globale</h2>
+                                     <div class="progression">
                                          <?php
                                        
 
@@ -151,6 +140,18 @@
 
 
                                      </div>
+                     <div class="card-body">
+                         <div class="table-responsive">
+                             <table id="example4" class="display">
+                                 <thead>
+                                     <tr>
+                                         <th>Vos listes</th>
+
+                                         <th>Action</th>
+                                     </tr>
+                                 </thead>
+                                 <tbody>
+                                  
                                      <?php foreach ($lists as $list) : ?>
 
                                      <tr>
