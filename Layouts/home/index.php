@@ -54,8 +54,8 @@
                                  </tr>
                              </thead>
                              <tbody>
-                                 <h2>Progression globale</h2>
-                                 <div class="progression d-flex">
+                                 <h2 class="col-12 text-center">Progression globale</h2>
+                                 <div class="progression row">
                                      <?php
                                        
 
@@ -75,7 +75,7 @@
                                         }
                                        
                                        
-                                        echo '<div class="col-6">';
+                                        echo '<div class="col-12 col-lg-6 text-center">';
                                         echo '<h4> Tâches terminé : <span class="badge badge-success m-2">' . $progression . '%</span></h4>';
                                         echo '</div>';
                                         $count_in_progress = 0;
@@ -95,7 +95,7 @@
                                        
 
                                         
-                                        echo '<div class="col-6">';
+                                        echo '<div class="col-12 col-lg-6 text-center">';
                                         echo '<h4> Tâches en cours : <span class="badge badge-danger m-2">' . $progression . '%</span></h4>';
                                         echo '</div>';
 
