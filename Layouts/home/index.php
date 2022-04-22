@@ -64,35 +64,37 @@
                                        
                                        ?>
                          <div class="progress m-2" style="height: 20px;">
-                             <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo  $progression; ?>%;"
+                             <div class="progress-bar bg-success" role="progressbar"
+                                 style="width: <?php echo  $progression; ?>%;"
                                  aria-valuenow="<?php echo  $progression; ?>" aria-valuemin="0" aria-valuemax="100">
-                                 <?php echo  $progression; ?>%</div>
+                                 <?php echo  $progression; ?>%
+                             </div>
                              <span class="progress-type px-2">Tâche globale Terminé</span>
 
                          </div>
                          <?php
                          $count_in_progress = 0;
                          foreach ($tasks as $task) {
-                         if ($task['status'] == 'en cours') {
-                         $count_in_progress++;
+                             if ($task['status'] == 'en cours') {
+                                 $count_in_progress++;
+                             } else {
+                                 $count_in_progress;
+                             }
+                         }
+                         if ($count_in_progress == 0) {
+                             $progression = 0;
                          } else {
-                         $count_in_progress;
-                         }
-                         }
-                         if($count_in_progress == 0){
-                         $progression = 0;
-                         }else{
-
-                         $progression = round(($count_in_progress / count($tasks)) * 100);
+                             $progression = round(($count_in_progress / count($tasks)) * 100);
                          }
                          ?>
 
-                         <div class="progress m-2" style="height: 20px;">
-                             <div class="progress-bar" role="progressbar" style="width: <?php echo  $progression; ?>;"
-                                 aria-valuenow="<?php echo  $progression; ?>" aria-valuemin="0" aria-valuemax="100">
-                                 <?php echo  $progression; ?>%</div>
-                             <span class="progress-type px-2">Tâche globale en cours</span>
-
+                         <div class="progress">
+                             <div class="progress-bar" role="progressbar" aria-valuenow="<?php echo  $progression; ?>" aria-valuemin="0"
+                                 aria-valuemax="100" style="width: <?php echo  $progression; ?>%;">
+                                 <span class="sr-only"><?php echo  $progression; ?>% Complete</span>
+                             </div>
+                             <span class="progress-type">HTML / HTML5</span>
+                             <span class="progress-completed"><?php echo  $progression; ?>%</span>
                          </div>
 
 
