@@ -87,31 +87,10 @@
                              <div class="progress-bar" role="progressbar" style="width: 25%;"
                                  aria-valuenow="<?php echo  $progression; ?>" aria-valuemin="0" aria-valuemax="100">
                                  <?php echo  $progression; ?>%</div>
+                                 <span class="progress-type">Tâche globale en cours</span>
+                                <span class="progress-completed"> <?php echo  $progression; ?>%</span>
                          </div>
-                         <div class="container-fluid">
-                             <div class="row">
-                                 <div class="progress">
-                                     <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0"
-                                         aria-valuemax="100" style="width: 60%;">
-                                         <span class="sr-only">60% Complete</span>
-                                     </div>
-                                     <span class="progress-type">HTML / HTML5</span>
-                                     <span class="progress-completed">60%</span>
-                                 </div>
-                                 <div class="progress">
-                                     <div class="progress-bar progress-bar-success" role="progressbar"
-                                         aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                                         <span class="sr-only">40% Complete (success)</span>
-                                     </div>
-                                     <span class="progress-type">ASP.Net</span>
-                                     <span class="progress-completed">40%</span>
-                                 </div>
-                                
-                                
-                                 
-                             </div>
-                         </div>
-
+                     
 
 
                      </div>
