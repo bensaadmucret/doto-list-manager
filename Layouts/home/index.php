@@ -64,7 +64,7 @@
                                        
                                        ?>
                          <div class="progress m-2" style="height: 20px;">
-                             <div class="progress-bar" role="progressbar" style="width: 25%;"
+                             <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo  $progression; ?>%;"
                                  aria-valuenow="<?php echo  $progression; ?>" aria-valuemin="0" aria-valuemax="100">
                                  <?php echo  $progression; ?>%</div>
                              <span class="progress-type px-2">Tâche globale Terminé</span>
@@ -88,7 +88,7 @@
                          ?>
 
                          <div class="progress m-2" style="height: 20px;">
-                             <div class="progress-bar" role="progressbar" style="width: 25%;"
+                             <div class="progress-bar" role="progressbar" style="width: <?php echo  $progression; ?>;"
                                  aria-valuenow="<?php echo  $progression; ?>" aria-valuemin="0" aria-valuemax="100">
                                  <?php echo  $progression; ?>%</div>
                              <span class="progress-type px-2">Tâche globale en cours</span>
