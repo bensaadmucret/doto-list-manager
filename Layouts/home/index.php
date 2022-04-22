@@ -69,7 +69,7 @@
                                  aria-valuenow="<?php echo  $progression; ?>" aria-valuemin="0" aria-valuemax="100">
                                  <?php echo  $progression; ?>%
                              </div>
-                             <span class="progress-type px-2">Tâche globale Terminé</span>
+                             <span class="progress-type px-2">Terminé</span>
 
                          </div>
                          <?php
@@ -89,11 +89,11 @@
                          ?>
 
                          <div class="progress m-2" style="height: 20px;">
-                             <div class="progress-bar" role="progressbar" aria-valuenow="<?php echo  $progression; ?>"
+                             <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="<?php echo  $progression; ?>"
                                  aria-valuemin="0" aria-valuemax="100" style="width: <?php echo  $progression; ?>%;">
                                  <span class="sr-only"><?php echo  $progression; ?>% Complete</span>
                              </div>
-                             <span class="progress-type">Tâches globale en cours</span>
+                             <span class="progress-type">En cours</span>
                              
                          </div>
 
