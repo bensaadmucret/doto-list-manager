@@ -94,7 +94,12 @@
                                  aria-valuenow="<?php echo  $progression; ?>" aria-valuemin="0" aria-valuemax="100">
                                  <?php echo  $progression; ?>%
                              </div>
-                             <span class="progress-type px-2">En cours</span>
+                             <?php if($progression == 0): ?>
+                             <span class="progress-type px-2">Bravo, vous n'avez plus de tâche</span>
+                                <?php else: ?>
+                                <span class="progress-type px-2">En cours</span>
+                                <?php endif; ?>
+                                
 
                          </div>
 
