@@ -157,6 +157,7 @@
     <!-- DATATABLE -->
     <script src="<?php echo assets('/ressources/js/plugins-init/Todo-script-init.js' );?>"></script>*
     <script src="<?php echo assets('/ressources/js/formulaire.js' );?>"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
     
 
 </body>
