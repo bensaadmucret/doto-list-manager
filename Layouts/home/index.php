@@ -56,41 +56,44 @@
                                                 $count_done;
                                             }
                                         }
-                                        if($count_done == 0){
+                                        if ($count_done == 0) {
                                             $progression = 0;
-                                        }else{
-                                            
-                                        $progression = round(($count_done / count($tasks)) * 100);
+                                        } else {
+                                            $progression = round(($count_done / count($tasks)) * 100);
                                         }
                                        
-                                       
-                                        echo '<div class="col-12 col-lg-6 text-center">';
-                                        echo '<h4> Tâches terminé : <span class="badge badge-success m-2">' . $progression . '%</span></h4>';
-                                        echo '</div>';
-                                        $count_in_progress = 0;
-                                        foreach ($tasks as $task) {
-                                            if ($task['status'] == 'en cours') {
-                                                $count_in_progress++;
-                                            } else {
-                                                $count_in_progress;
-                                            }
-                                        }
-                                        if($count_in_progress == 0){
-                                            $progression = 0;
-                                        }else{
-                                            
-                                        $progression = round(($count_in_progress / count($tasks)) * 100);
-                                        }
                                        ?>
+                         <div class="progress m-2" style="height: 20px;">
+                             <div class="progress-bar" role="progressbar" style="width: 25%;"
+                                 aria-valuenow="<?php echo  $progression; ?>" aria-valuemin="0" aria-valuemax="100">
+                                 <?php echo  $progression; ?>%</div>
+                             <span class="progress-type px-2">Tâche globale Terminé</span>
+
+                         </div>
+                         $count_in_progress = 0;
+                         foreach ($tasks as $task) {
+                         if ($task['status'] == 'en cours') {
+                         $count_in_progress++;
+                         } else {
+                         $count_in_progress;
+                         }
+                         }
+                         if($count_in_progress == 0){
+                         $progression = 0;
+                         }else{
+
+                         $progression = round(($count_in_progress / count($tasks)) * 100);
+                         }
+                         ?>
 
                          <div class="progress m-2" style="height: 20px;">
                              <div class="progress-bar" role="progressbar" style="width: 25%;"
                                  aria-valuenow="<?php echo  $progression; ?>" aria-valuemin="0" aria-valuemax="100">
                                  <?php echo  $progression; ?>%</div>
-                                 <span class="progress-type px-2">Tâche globale en cours</span>
-                                
+                             <span class="progress-type px-2">Tâche globale en cours</span>
+
                          </div>
-                     
+
 
 
                      </div>
@@ -109,9 +112,8 @@
                                      <?php foreach ($lists as $list) : ?>
 
                                      <tr>
-                                         <td><span class="badge bg-info text-white m-2"><i
-                                                     class="lni lni-write"></i>
-                                                    </span><?php echo $list['name'] ?? "" ?>
+                                         <td><span class="badge bg-info text-white m-2"><i class="lni lni-write"></i>
+                                             </span><?php echo $list['name'] ?? "" ?>
                                          </td>
 
 
