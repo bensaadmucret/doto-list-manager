@@ -16,7 +16,7 @@
          <div class="modal-dialog" role="document">
              <div class="modal-content">
                  <div class="modal-header">
-                     <h5 class="modal-title" id="exampleModalLabel">Add List</h5>
+                     <h5 class="modal-title" id="exampleModalLabel">Ajouter une Liste</h5>
                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                          <span aria-hidden="true">&times;</span>
                      </button>
@@ -92,9 +92,9 @@
                                        
 
                                         
-                                        
+                                        echo '<div class=" col-12 progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: ' . $progression . '%"></div>';
                                         echo '<h4> Tâches en cours : <span class="badge badge-danger m-2">' . $progression . '%</span></h4>';
-                                        
+                                        echo '</div>';
 
                                         ?>
                                  </div>
