@@ -44,8 +44,8 @@
                          <h1>Tasks manager</h4>
                      </div>
                      <h2 class="col-12 text-center">Progression globale</h2>
-                                     <div class="progression">
-                                         <?php
+                     <div class="progression">
+                         <?php
                                        
 
                                         $count_done = 0;
@@ -56,11 +56,10 @@
                                                 $count_done;
                                             }
                                         }
-                                        if($count_done == 0){
+                                        if ($count_done == 0) {
                                             $progression = 0;
-                                        }else{
-                                            
-                                        $progression = round(($count_done / count($tasks)) * 100);
+                                        } else {
+                                            $progression = round(($count_done / count($tasks)) * 100);
                                         }
                                        
                                        
@@ -75,71 +74,40 @@
                                                 $count_in_progress;
                                             }
                                         }
-                                        if($count_in_progress == 0){
+                                        if ($count_in_progress == 0) {
                                             $progression = 0;
-                                        }else{
-                                            
-                                        $progression = round(($count_in_progress / count($tasks)) * 100);
+                                        } else {
+                                            $progression = round(($count_in_progress / count($tasks)) * 100);
                                         }
                                        ?>
 
-                                         <div class="progress" style="height: 20px;">
-                                             <div class="progress-bar" role="progressbar" style="width: 25%;"
-                                                 aria-valuenow="<?php echo  $progression; ?>" aria-valuemin="0"
-                                                 aria-valuemax="100"><?php echo  $progression; ?>%</div>
-                                         </div>
-                                         <div class="container">
-                                             <div class="row">
-                                                 <div class="progress">
-                                                     <div class="progress-bar" role="progressbar" aria-valuenow="60"
-                                                         aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-                                                         <span class="sr-only">60% Complete</span>
-                                                     </div>
-                                                     <span class="progress-type">HTML / HTML5</span>
-                                                     <span class="progress-completed">60%</span>
-                                                 </div>
-                                                 <div class="progress">
-                                                     <div class="progress-bar progress-bar-success" role="progressbar"
-                                                         aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
-                                                         style="width: 40%">
-                                                         <span class="sr-only">40% Complete (success)</span>
-                                                     </div>
-                                                     <span class="progress-type">ASP.Net</span>
-                                                     <span class="progress-completed">40%</span>
-                                                 </div>
-                                                 <div class="progress">
-                                                     <div class="progress-bar progress-bar-info" role="progressbar"
-                                                         aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
-                                                         style="width: 20%">
-                                                         <span class="sr-only">20% Complete (info)</span>
-                                                     </div>
-                                                     <span class="progress-type">Java</span>
-                                                     <span class="progress-completed">20%</span>
-                                                 </div>
-                                                 <div class="progress">
-                                                     <div class="progress-bar progress-bar-warning" role="progressbar"
-                                                         aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                                                         style="width: 60%">
-                                                         <span class="sr-only">60% Complete (warning)</span>
-                                                     </div>
-                                                     <span class="progress-type">JavaScript / jQuery</span>
-                                                     <span class="progress-completed">60%</span>
-                                                 </div>
-                                                 <div class="progress">
-                                                     <div class="progress-bar progress-bar-danger" role="progressbar"
-                                                         aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"
-                                                         style="width: 80%">
-                                                         <span class="sr-only">80% Complete (danger)</span>
-                                                     </div>
-                                                     <span class="progress-type">CSS / CSS3</span>
-                                                     <span class="progress-completed">80%</span>
-                                                 </div>
-                                             </div>
-                                         </div>
-
-
-
+                         <div class="progress" style="height: 20px;">
+                             <div class="progress-bar" role="progressbar" style="width: 25%;"
+                                 aria-valuenow="<?php echo  $progression; ?>" aria-valuemin="0" aria-valuemax="100">
+                                 <?php echo  $progression; ?>%</div>
+                         </div>
+                        
+                                 <div class="progress">
+                                     <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                                         aria-valuemax="100" style="width: 60%;">
+                                         <span class="sr-only">60% Complete</span>
                                      </div>
+                                     <span class="progress-type">HTML / HTML5</span>
+                                     <span class="progress-completed">60%</span>
+                                 </div>
+                                 <div class="progress">
+                                     <div class="progress-bar progress-bar-success" role="progressbar"
+                                         aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                         <span class="sr-only">40% Complete (success)</span>
+                                     </div>
+                                     <span class="progress-type">ASP.Net</span>
+                                     <span class="progress-completed">40%</span>
+                                 </div>
+                                 
+                  
+
+
+                     </div>
                      <div class="card-body">
                          <div class="table-responsive">
                              <table id="example4" class="display">
@@ -151,12 +119,13 @@
                                      </tr>
                                  </thead>
                                  <tbody>
-                                  
+
                                      <?php foreach ($lists as $list) : ?>
 
                                      <tr>
                                          <td><span class="badge bg-info text-white m-2"><i
-                                                     class="lni lni-write"></i></span><?php echo $list['name'] ?? "" ?>
+                                                     class="lni lni-write"></i>
+                                                    </span><?php echo $list['name'] ?? "" ?>
                                          </td>
 
 
