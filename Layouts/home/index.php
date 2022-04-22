@@ -73,8 +73,9 @@
                                         }
                                        
                                        
+                                        echo '<div class="col-12">';
                                         echo '<h4> Tâches terminé : <span class="badge badge-success m-2">' . $progression . '%</span></h4>';
-                                       
+                                        echo '</div>';
                                         $count_in_progress = 0;
                                         foreach ($tasks as $task) {
                                             if ($task['status'] == 'en cours') {
@@ -92,7 +93,7 @@
                                        
 
                                         
-                                        echo '<div class=" col-12 progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: ' . $progression . '%"></div>';
+                                        echo '<div class="col-12">';
                                         echo '<h4> Tâches en cours : <span class="badge badge-danger m-2">' . $progression . '%</span></h4>';
                                         echo '</div>';
 
