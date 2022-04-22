@@ -36,7 +36,7 @@
      </div>
      <!-- row -->
      <div class="row">
-         <div class="col-12">
+         <div class="col-8">
              <div class="card">
                  <div class="card-header">
                      <h1>Tasks manager</h4>
@@ -73,7 +73,7 @@
                                         }
                                        
                                        
-                                        echo '<div class="col-12">';
+                                        echo '<div class="col-6">';
                                         echo '<h4> Tâches terminé : <span class="badge badge-success m-2">' . $progression . '%</span></h4>';
                                         echo '</div>';
                                         $count_in_progress = 0;
@@ -93,7 +93,7 @@
                                        
 
                                         
-                                        echo '<div class="col-12">';
+                                        echo '<div class="col-6">';
                                         echo '<h4> Tâches en cours : <span class="badge badge-danger m-2">' . $progression . '%</span></h4>';
                                         echo '</div>';
 
